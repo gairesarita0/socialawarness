@@ -55,6 +55,13 @@ h1,h2,h3,h4,h5,h6{
 .center{
     text-align: center;
 }
+.col-1-2{
+    width: 48.5%;
+    margin-right: 3%;
+}
+.col-1-2:nth-child(2n), .col-1-2:last-child{
+    margin-right: 0;
+}
 .col-50{
     width: 50%;
 }
@@ -176,11 +183,11 @@ color: #fff;
     display: block;
 }
 .login_form input{
-width: 100%;
-padding: 10px;
-margin-bottom: 10px;
-border: 2px solid #003585;
-border-radius: 3px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #003585;
+    border-radius: 3px;
 }
 .login_form input:focus{
     outline: none;
@@ -207,6 +214,8 @@ font-size: 12px;
 }
 .primary-menu li{
     margin-right: 20px;
+    display: flex;
+    align-items: center;
 }
 .primary-menu li:last-child{
     margin-right: 0;
@@ -216,6 +225,26 @@ font-size: 12px;
     padding: 4px;
     font-family: PoppinsMed;
     color: #003585;
+}
+.admin_profile{
+    position: relative;
+}
+.profile_options_container{
+    position: absolute;
+    top: 50px;
+    left: 0;
+    display: none;
+    z-index: 9;
+}
+.admin_profile:hover .profile_options_container{
+    display: block;
+}
+.profile_options {
+    padding: 12px;
+    box-shadow: 0 0 5px 0px rgba(0,0,0,0.3);
+    border-radius: 8px;
+    background-color: #fff;
+    width: 250px;
 }
 .menu-burger{
     position: absolute;
@@ -241,29 +270,53 @@ font-size: 12px;
     border-color:  #fff !important;
 }
 /* Home Page */
-
 body.home-page{
     background-color: #e5e5e5;
 }
 .page-content-container{
     margin-top: 40px;
 }
-.profile_options_container, .advertisements_container{
-    width: 285px;
-    
+.timeline_container{
+    width: 67%;
+    margin-right: 3%;
 }
-.profile_options, .advertisements{
-    padding: 25px;
+.advertisements_container{
+    width: 30%;
+    margin-top: 45px;
+}
+.add_post_button, .add_adv_btn{
+    text-decoration: none;
+    padding: 6px 18px;
+    display: inline-block;
+    border: 1px solid #003585;
+    background-color: #003585;
+    color: #fff;
+    font-family: PoppinsMed;
+    margin-bottom: 12px;
+    border-radius: 4px;
+}
+.advertisements{
+    padding: 15px;
     box-shadow: 0 0 5px 0px rgba(0,0,0,0.3);
     border-radius: 8px;
     background-color: #fff;
 }
-.timeline_container{
-    width: 542px;
+.about-us-section{
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+.contact-us-section{
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    
 }
 .user_img{
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     border-radius: 100%;
 }
 .user_name{
@@ -308,14 +361,16 @@ body.home-page{
     outline: none;
 }
 .timeline{
-    margin-top: 18px;
     border-radius: 8px;
     background-color: #fff;
     padding: 15px;
     box-shadow: 0 0 5px 0px rgba(0,0,0,0.3);
 }
 .single_post{
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    border: 1px solid #003585;
+    border-radius: 8px;
+    padding: 10px 25px;
 }
 .single_post:last-child{
     margin-bottom: 0;
@@ -331,7 +386,97 @@ body.home-page{
 .post_media img{
     width: 100%;
     display: block;
+    height: 320px;
+    object-fit: contain;
 }
+.post_comments{
+    margin-top: 12px;
+}
+.user_comment{
+    margin-left: 15px;
+}
+.user_comment p{
+    margin-left: 0;
+}
+.user_comment span{
+    font-size: 14px;
+}
+.new_comment{
+    width: 100%;
+    padding: 4px;
+    font-family: PoppinsRegular;
+    margin-top: 12px;
+}
+.new_comment:focus{
+    outline: none;
+}
+/* Modal CSS */
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 650px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+  }
+  input, textarea{
+      width: 100%;
+      font-family: PoppinsRegular;
+  }
+  .modal-header h2{
+      margin: 12px 0;
+  }
+  /* Add Animation */
+  @-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  @keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
+  /* The Close Button */
+  .close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .modal-header {
+    padding: 2px 16px;
+    background-color: #003585;
+    color: white;
+  }
+  .modal-body {padding: 2px 16px;}
+
+/* Site Footer */
 .site-footer{
     padding: 12px 0;
     border-top: 1px solid #2d2d2d;

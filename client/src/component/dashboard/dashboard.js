@@ -1,161 +1,215 @@
-import { useState } from "react";
+import React from "react";
+import "../../css/style.css";
 import logo from "../../img/Social_Awareness_logo.png";
-import React from 'react';
-import { Routes, Route } from "react-router-dom";
-import {Home,Login, Register,Whoops404} from '../../pages' ;
-import {Link, useLocation} from "react-router-dom";
-import "../../css/style.css"
 
-function Header(){
-  return(
-    <header class="site-header">
-    <div class="container">
-      <div class="d-flex space-between items-center">
-        <img src={logo} alt="" class="site-logo" />
-        <nav className="navbar navbar-expand-lg navbar-dark bg-light ">
-            <div className="container-fluid">
-                <a className="navbar-brand" href="#">Social Awareness</a>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                <div className="collapse navbar-collapse" id="main_nav">
-                    <ul className="navbar-nav text-dark">
-                        <li className="nav-item text-dark"><a className="text-secondary nav-link " href="/">Home</a></li>
-                        <li className="nav-item"><Link to="/login" className="text-secondary nav-link">Sign In</Link></li>
-                        <li className="nav-item"><Link to="/register" className=" nav-link">Sign Up</Link></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-      </div>
-    </div>
-    <div class="menu-burger">
-      <div class="menu-bar"></div>
-      <div class="menu-bar"></div>
-      <div class="menu-bar"></div>
-      <div class="menu-closer d-none">X</div>
-    </div>
-  </header>
-  );
-}
 
-function Main(props) {
+
+
+
+function Dashboard() {
+  
+
   return (
-    <main>
-      <div className="container">
-        <div>
-          <div>
-            <div>
-              <img src="./img/user.png" alt="" class="user_img" />
-              <p class="user_name">{ props.name } <span class="user_role">Admin</span></p>
-              <ul class="user_options no-style">
-                <li class="option_item"><a href="#">Edit My Profile</a></li>
-                <li class="option_item"><a href="#">View, Edit or Delete my Posts</a></li>
-                <li class="option_item"><a href="#">Approve Posts</a></li>
-                <li class="option_item"><a href="#">Log Out</a></li>
+    <>
+      <header className="site-header">
+        <div className="container">
+          <div className="d-flex space-between items-center">
+            <img src={logo} alt="" className="site-logo" />
+            <div className="site-nevigation transition">
+              <ul className="d-flex no-style primary-menu">
+                <li className="list-item"><a href="home-page.html">Home</a></li>
+                <li className="list-item"><a href="#">Contact Us</a></li>
+                <li className="admin_profile">
+                  <img src={require("../../img/user.png")} alt="" className="user_img" />
+                  <div className="profile_options_container">
+                    <div className="profile_options">
+                      <p className="user_name">Brenda E. Moss</p>
+                      <ul className="user_options no-style">
+                        <li className="option_item"><a href="#">Edit My Profile</a></li>
+                        <li className="option_item"><a href="#">View, Edit or Delete my Posts</a></li>
+                        <li className="option_item"><a href="#">Approve Posts</a></li>
+                        <li className="option_item"><a href="#">Log Out</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
               </ul>
             </div>
-          </div>
-
-          <div class="timeline_container">
-            <div class="add_new_post d-flex space-between">
-              <img src="./img/user.png" alt="" class="user_icon" />
-              <input type="text" placeholder="Start Writing a Post." />
-          </div>
-          <div class="timeline">
-            <div class="single_post">
-              <div class="user_meta d-flex items-center">
-                <img src="./img/user.png" alt="" class="user_icon" />
-                <p>{props.name}</p>
-              </div>
-              <div class="post_description">
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid officia voluptas.</p>
-              </div>
-              <div class="post_media">
-                <video width="100%" height="275px" controls autoplay muted>
-                  <source src="./img/video.mp4" type="video/mp4" />
-                </video>
-              </div>
-            </div>
-            <div class="single_post">
-              <div class="user_meta d-flex items-center">
-                <img src="./img/user.png" alt="" class="user_icon" />
-                <p>Brenda E. Moss</p>
-              </div>
-              <div class="post_description">
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid officia voluptas.</p>
-              </div>
-              <div class="post_media">
-                <img src="./img/Social_Awareness_img.jpg" alt="" />
-              </div>
-            </div>
-          </div>
         </div>
-        <div class="advertisements_container">
-          <div class="advertisements">
-            <h2 class="center">Advertisements</h2>
-            <div class="swiper advertisement_slider mySwiper">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <img src="./img/social1.jpeg" alt="" />
+      </div>
+      <div className="menu-burger">
+        <div className="menu-bar"></div>
+        <div className="menu-bar"></div>
+        <div className="menu-bar"></div>
+        <div className="menu-closer d-none">X</div>
+      </div>
+    </header>
+    <main className="page-content-container">
+      <div className="container">
+        <div className="d-flex space-between">
+          
+          <div className="timeline_container">
+            <div className="Popup_btns">
+              <button id="myBtn" className="add_post_button">Post Event</button>
+              <button id="myBtn2" className="add_adv_btn">Post Advertisement</button>
+            </div>
+            <div className="timeline">
+              <div className="single_post">
+                <div className="user_meta d-flex items-center">
+                  <img src="../../img/user.png" alt="" className="user_icon" />
+                  <p>Brenda E. Moss</p>
                 </div>
-                <div class="swiper-slide">
-                  <img src="./img/social2.jpeg" alt="" />
+                <div className="post_description">
+                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid officia voluptas.</p>
+                </div>
+                <div className="post_media">
+                  <img src={require("../../img/Social_Awareness_img.jpg")} alt="" />
+                </div>
+                <div className="post_comments">
+                  <div className="user_meta d-flex items-center">
+                    <img src={require("../../img/men-img.jpeg")} alt="" className="user_icon" />
+                    <div className="user_comment">
+                      <p>John Deo</p>
+                      <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis unde placeat delectus.</span>
+                    </div>
+                    <input type="text" className="new_comment" placeholder="write new comment" />
+                  </div> 
                 </div>
               </div>
-              <div class="swiper-button-next"></div>
-              <div class="swiper-button-prev"></div>
+              <div className="single_post">
+                <div className="user_meta d-flex items-center">
+                  <img src={require("../../img/user.png")} alt="" className="user_icon" />
+                  <p>Brenda E. Moss</p>
+                </div>
+                <div className="post_description">
+                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid officia voluptas.</p>
+                </div>
+                <div className="post_media">
+                  <video width="100%" height="275px" controls autoplay muted>
+                    <source src={require("../../img/video.mp4")} type="video/mp4" />
+                  </video>
+                </div>
+                <div className="post_comments">
+                  <div className="user_meta d-flex items-center">
+                    <img src={require("../../img/men-img.jpeg")} alt="" className="user_icon" />
+                    <div className="user_comment">
+                      <p>John Deo</p>
+                      <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis unde placeat delectus.</span>
+                    </div>
+                    <input type="text" className="new_comment" placeholder="write new comment" />
+                  </div> 
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="advertisements_container">
+            <div className="advertisements">
+              <h2 className="center">Advertisements</h2>
+              <div className="swiper advertisement_slider mySwiper">
+                <div className="swiper-wrapper">
+                  <div className="swiper-slide">
+                    <img src={require("../../img/social1.jpeg")} alt="" />
+                  </div>
+                  <div className="swiper-slide">
+                    <img src={require("../../img/social2.jpeg")} alt="" />
+                  </div>
+                </div>
+                <div className="swiper-button-next"></div>
+                <div className="swiper-button-prev"></div>
+              </div>
+            </div>
+            <div className="about-us-section">
+              <h2 className="center">About Us</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste soluta perferendis eius iusto vel illo repellat ducimus, aperiam doloribus. Dolores sequi culpa minima quam nobis repudiandae omnis tempore excepturi. Tenetur!</p>
+            </div>
+            <div className="contact-us-section">
+              <h2 className="center">Get In Touch</h2>
+              <p>Please contact us through email or phone number for further information and queries.</p>
+              <span>Call: <a href="tel:0123456789">012 345 6789</a></span><br/>
+              <span>E-mail: <a href="mailto:example@gmail.com">Example@gmail.com</a></span>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </main>
-  );
-}
+    </main>
+    { /* -- HTML MODALS-- */}
 
-function Footer(props){
-  return (
-    <footer class="site-footer">
-    <div class="container">
-      <span class="center">All Rights Reserved By Socail Awareness | { props.year }</span>
-    </div>
-  </footer>
-   );
-}
-
-
-/*
-function App(props) {
-
-  if (props.authorized){
-
-    return (
-            <div className="App">
-              <Header />
-              <Main name="Sarita Gaire"/>
-              <Footer year= {new Date().getFullYear() } />
+    { /* -- The Modal --> */}
+  <div id="myModal" className="modal">
+    {/*<!-- Modal content --> */}
+    <div className="modal-content">
+      <div className="modal-header">
+        <span className="close">&times;</span>
+        <h2>Post Event</h2>
+      </div>
+      <div className="modal-body">
+        <form action="">
+          <div className="d-flex">
+            <div className="col-1-2">
+              <label for="event-name">Event Title</label><br />
+              <input type="text" name="event-name" />
             </div>
-    );
+            <div className="col-1-2">
+              <label for="event-cat">Event Category</label><br />
+              <input type="text" name="event-cat" />
+            </div>
+            <div className="col-1-2">
+              <label for="event-location">Event Location</label><br />
+              <input type="text" name="event-location" />
+            </div>
+            <div className="col-1-2">
+              <label for="event-date">Event Date</label><br />
+              <input type="text" name="event-date" />
+            </div>
+          </div>
+          <div className="event_desc">
+            <label for="event-desc">Event Description</label><br />
+            <textarea name="event-desc" id="" cols="30" rows="10"></textarea>
+          </div>
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
+    </div>
+  </div>
 
-  }
-
-  else {
-    return (<h1>You are not authorized to be here go back you little ...</h1>);
-  }
-  
- 
-}
-*/
-function Dashboard(){
-    return(
-
-        <>
-              <Header />
-              <Main name="Sarita Gaire"/>
-              <Footer year= {new Date().getFullYear() } />
-        </>
-    );
+  { /*<!-- Modal 2 for advertisement --> */}
+  <div id="myModal2" className="modal">
+    { /* <!-- Modal content --> */}
+    <div className="modal-content">
+      <div className="modal-header">
+        <span className="close">&times;</span>
+        <h2>Post Advertisement</h2>
+      </div>
+      <div className="modal-body">
+        <form action="">
+          <div className="d-flex">
+            <div className="col-1-2">
+              <label for="advt-name">Advertisement Title</label><br />
+              <input type="text" name="advt-name" />
+            </div>
+            <div className="col-1-2">
+              <label for="advt-cat">Advertisement Category</label><br />
+              <input type="text" name="advt-cat" />
+            </div>
+            <div className="col-1-2">
+              <label for="advt-attach">Attachments</label><br />
+              <input type="file" accept="image/png, image/jpeg" name="advt-attach" />
+            </div>
+          </div>
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
+    </div>
+    </div>
+    <footer className="site-footer">
+      <div className="container">
+        <span className="center">All Rights Reserved By Socail Awareness | 2022</span>
+      </div>
+    </footer>
+    <script src="../../js/swiper-bundle.min.js"></script>
+    <script src="../../js/app.js"></script>
+    </>
+  );
 }
 
 export default Dashboard;

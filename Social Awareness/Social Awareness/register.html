@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login Page</title>
+    <title>Sign Up Page</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -13,31 +13,38 @@
         <div class="col-50 login-types-wrapper d-flex just-center items-center">
           <div class="login-types">
             <img src="img/Social_Awareness_logo.png" alt="" />
-            <button class="btn btn-google">Sign In with Google</button>
-            <button class="btn btn-facebook">Sign In with Facebook</button>
           </div>
         </div>
         <div
           class="col-50 login-fields-wrapper d-flex just-center items-center">
           <div class="login-fields">
-            <h2>Log In</h2>
+            <h2>Register Yourself</h2>
             <form action="" class="login_form">
               <label for="user_id">User Name</label>
               <input 
                 id="user_id"
                 type="text"
+                placeholder="User Name" />
+              <label for="user_id">Email</label>
+              <input 
+                id="user_id"
+                type="text"
                 placeholder="Example@gmail.com" />
+              <label for="user_id">Date of Birth</label>
+              <input 
+                id="user_id"
+                type="text"
+                placeholder="Date of Birth" />
               <label for="user_password">Password</label>
               <input
                 id="user_password"
                 type="password"
                 placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
               />
-              <button class="btn sign-in-btn">SIGN IN</button>
+              <button class="btn sign-in-btn">SIGN UP</button>
             </form>
-            <div class="d-flex space-between login-help">
-              <span><a href="#">Forgot Password?</a></span>
-              <span><a href="register.html">Not a Member?</a></span>
+            <div class="d-flex just-end login-help">
+              <span><a href="login.html">Already have account?</a></span>
             </div>
           </div>
         </div>

@@ -1,7 +1,8 @@
 import React from "react";
-import {Link, useLocation} from "react-router-dom";
+import {useLocation} from "react-router-dom";
 import Signin from './component/login/login' ;
 import Dashboard from "./component/dashboard/dashboard";
+import Signup from './component/login/register';
 
 export function Home(){
     return (
@@ -20,13 +21,7 @@ export function Login(){
 
 export function Register(){
     return (
-        <div>
-            <h1>Register</h1>
-            <nav>
-                <Link to="/">Home</Link>
-                <Link to="/login">Login</Link>
-            </nav>
-        </div>
+      <Signup />
     )
 }
 

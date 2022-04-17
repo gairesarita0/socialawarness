@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="home-page">
+  <header class="site-header">
+    <div class="container">
+      <div class="d-flex space-between items-center">
+        <img src="img/Social_Awareness_logo.png" alt="" class="site-logo">
+        <div class="site-nevigation transition">
+          <ul class="d-flex no-style primary-menu">
+            <li class="list-item"><a href="home-page.html">Home</a></li>
+            <li class="list-item"><a href="#">Contact Us</a></li>
+            <li class="admin_profile"><img src="img/user.png" alt="" class="user_img">
+              <div class="profile_options_container">
+                <div class="profile_options">
+                  <p class="user_name">Brenda E. Moss</p>
+                  <ul class="user_options no-style">
+                    <li class="option_item"><a href="#">Edit My Profile</a></li>
+                    <li class="option_item"><a href="#">View, Edit or Delete my Posts</a></li>
+                    <li class="option_item"><a href="#">Approve Posts</a></li>
+                    <li class="option_item"><a href="#">Log Out</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="menu-burger">
+      <div class="menu-bar"></div>
+      <div class="menu-bar"></div>
+      <div class="menu-bar"></div>
+      <div class="menu-closer d-none">X</div>
+    </div>
+  </header>
+  <main class="page-content-container">
+    <div class="container">
+      <div class="d-flex space-between">
+        
+        <div class="timeline_container">
+          <div class="Popup_btns">
+            <button id="myBtn" class="add_post_button">Post Event</button>
+            <button id="myBtn2" class="add_adv_btn">Post Advertisement</button>
+          </div>
+          <div class="timeline">
+            <div class="single_post">
+              <div class="user_meta d-flex items-center">
+                <img src="img/user.png" alt="" class="user_icon">
+                <p>Brenda E. Moss</p>
+              </div>
+              <div class="post_description">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid officia voluptas.</p>
+              </div>
+              <div class="post_media">
+                <img src="img/Social_Awareness_img.jpg" alt="">
+              </div>
+              <div class="post_comments">
+                <div class="user_meta d-flex items-center">
+                  <img src="img/men-img.jpeg" alt="" class="user_icon">
+                  <div class="user_comment">
+                    <p>John Deo</p>
+                    <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis unde placeat delectus.</span>
+                  </div>
+                  <input type="text" class="new_comment" placeholder="write new comment">
+                </div> 
+              </div>
+            </div>
+            <div class="single_post">
+              <div class="user_meta d-flex items-center">
+                <img src="img/user.png" alt="" class="user_icon">
+                <p>Brenda E. Moss</p>
+              </div>
+              <div class="post_description">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid officia voluptas.</p>
+              </div>
+              <div class="post_media">
+                <video width="100%" height="275px" controls autoplay muted>
+                  <source src="img/video.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="post_comments">
+                <div class="user_meta d-flex items-center">
+                  <img src="img/men-img.jpeg" alt="" class="user_icon">
+                  <div class="user_comment">
+                    <p>John Deo</p>
+                    <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis unde placeat delectus.</span>
+                  </div>
+                  <input type="text" class="new_comment" placeholder="write new comment">
+                </div> 
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="advertisements_container">
+          <div class="advertisements">
+            <h2 class="center">Advertisements</h2>
+            <div class="swiper advertisement_slider mySwiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src="img/social1.jpeg" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img src="img/social2.jpeg" alt="">
+                </div>
+              </div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            </div>
+          </div>
+          <div class="about-us-section">
+            <h2 class="center">About Us</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste soluta perferendis eius iusto vel illo repellat ducimus, aperiam doloribus. Dolores sequi culpa minima quam nobis repudiandae omnis tempore excepturi. Tenetur!</p>
+          </div>
+          <div class="contact-us-section">
+            <h2 class="center">Get In Touch</h2>
+            <p>Please contact us through email or phone number for further information and queries.</p>
+            <span>Call: <a href="tel:0123456789">012 345 6789</a></span><br>
+            <span>E-mail: <a href="mailto:example@gmail.com">Example@gmail.com</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- HTML MODALS -->
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Post Event</h2>
+    </div>
+    <div class="modal-body">
+      <form action="">
+        <div class="d-flex">
+          <div class="col-1-2">
+            <label for="event-name">Event Title</label><br>
+            <input type="text" name="event-name">
+          </div>
+          <div class="col-1-2">
+            <label for="event-cat">Event Category</label><br>
+            <input type="text" name="event-cat">
+          </div>
+          <div class="col-1-2">
+            <label for="event-location">Event Location</label><br>
+            <input type="text" name="event-location">
+          </div>
+          <div class="col-1-2">
+            <label for="event-date">Event Date</label><br>
+            <input type="text" name="event-date">
+          </div>
+        </div>
+        <div class="event_desc">
+          <label for="event-desc">Event Description</label><br>
+          <textarea name="event-desc" id="" cols="30" rows="10"></textarea>
+        </div>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 2 for advertisement -->
+<div id="myModal2" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Post Advertisement</h2>
+    </div>
+    <div class="modal-body">
+      <form action="">
+        <div class="d-flex">
+          <div class="col-1-2">
+            <label for="advt-name">Advertisement Title</label><br>
+            <input type="text" name="advt-name">
+          </div>
+          <div class="col-1-2">
+            <label for="advt-cat">Advertisement Category</label><br>
+            <input type="text" name="advt-cat">
+          </div>
+          <div class="col-1-2">
+            <label for="advt-attach">Attachments</label><br>
+            <input type="file" accept="image/png, image/jpeg" name="advt-attach">
+          </div>
+        </div>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+</div>
+  <footer class="site-footer">
+    <div class="container">
+      <span class="center">All Rights Reserved By Socail Awareness | 2022</span>
+    </div>
+  </footer>
+  <script src="js/swiper-bundle.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
