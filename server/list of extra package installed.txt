@@ -1,0 +1,13 @@
+npm install express mysql
+
+create src file
+
+
+npm install --save-dev @babel/core @babel/node @babel/preset-env (for babel which helps in code writing)
+create file .babelrc
+
+npm install --save body-parser
+
+npm install --save-dev nodemon
+
+to start npx nodemon --exec npx babel-node src/server.js
