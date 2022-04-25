@@ -1,27 +1,23 @@
-import React from "react";
+import React,{useState} from "react";
 import "../../css/style.css";
 import logo from "../../img/Social_Awareness_logo.png";
 
-
-
-
-
-function Signin() {
-  
-
+function Signin()
+ { 
   return (
-    <main class="d-flex just-center items-center h-100 w-100">
-      <div class="d-flex login-window">
-        <div class="col-50 login-types-wrapper d-flex just-center items-center">
-          <div class="login-types">
+    <main className="d-flex just-center items-center h-100 w-100">
+      <div className="d-flex login-window">
+        <div className="col-50 login-types-wrapper d-flex just-center items-center">
+          <div className="login-types">
             <img src={logo} alt="" />
           </div>
         </div>
         <div
-          class="col-50 login-fields-wrapper d-flex just-center items-center">
-          <div class="login-fields">
+          className="col-50 login-fields-wrapper d-flex just-center items-center">
+          <div className="login-fields">
             <h2>Log In</h2>
-            <form action="" class="login_form">
+            {/* error */}
+            <form action="/dashboard" className="login_form">
               <label for="user_id">User Name</label>
               <input 
                 id="user_id"
@@ -33,11 +29,11 @@ function Signin() {
                 type="password"
                 placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
               />
-              <button class="btn sign-in-btn">SIGN IN</button>
+              <button className="btn sign-in-btn">SIGN IN</button>
             </form>
-            <div class="d-flex space-between login-help">
-              <span><a href="#">Forgot Password?</a></span>
-              <span><a href="register.html">Not a Member?</a></span>
+            <div className="d-flex space-between login-help">
+              <span><a href="/register">Forgot Password?</a></span>
+              <span><a href="/register">Not a Member?</a></span>
             </div>
           </div>
         </div>

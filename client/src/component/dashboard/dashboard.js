@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer } from "react";
 import "../../css/style.css";
 import logo from "../../img/Social_Awareness_logo.png";
 
@@ -6,7 +6,12 @@ import logo from "../../img/Social_Awareness_logo.png";
 
 
 
-function Dashboard() {
+function Dashboard(sessionEmail) {
+console.log(sessionEmail);
+  if(sessionEmail ="") 
+ {
+  window.location.href = "/login";
+ }
   
 
   return (
@@ -28,7 +33,7 @@ function Dashboard() {
                         <li className="option_item"><a href="#">Edit My Profile</a></li>
                         <li className="option_item"><a href="#">View, Edit or Delete my Posts</a></li>
                         <li className="option_item"><a href="#">Approve Posts</a></li>
-                        <li className="option_item"><a href="#">Log Out</a></li>
+                        <li className="option_item"><a href="/">Log Out</a></li>
                       </ul>
                     </div>
                   </div>

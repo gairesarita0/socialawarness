@@ -5,6 +5,7 @@ import mysql from "mysql";
 const app = express();
 app.use(bodyParser.json());
 
+
 const db = mysql.createConnection({
     user: "root",
     host: "localhost",
@@ -18,9 +19,10 @@ app.post('/register', (req,res) => {
     db.query("Insert into user (name,email,password) value (?,?,?)",[uname,email,password],(err,result)=>{
         if(err){
             console.log(err);
+            res.json({error:err});
         }
         else{
-            res.send(result);
+            res.json({success:"success"});
         }
     });
 });
