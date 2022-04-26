@@ -1,18 +1,29 @@
-import React, { useReducer } from "react";
+import React from "react";
 import "../../css/style.css";
 import logo from "../../img/Social_Awareness_logo.png";
+import {useNavigate} from "react-router-dom";
 
 
 
 
 
-function Dashboard(sessionEmail) {
-console.log(sessionEmail);
-  if(sessionEmail ="") 
- {
-  window.location.href = "/login";
- }
+function Dashboard() {
+  const navigate = useNavigate();
   
+  const logout = () => {
+    localStorage.clear();
+    window.location.href = "/dashboard"
+  }
+
+  React.useEffect(() => {
+    const token = localStorage.getItem("accessToken");
+    console.log(token);
+    if(!token){
+      console.log(token);
+      navigate("/")
+    }
+  });
+ 
 
   return (
     <>
@@ -33,7 +44,7 @@ console.log(sessionEmail);
                         <li className="option_item"><a href="#">Edit My Profile</a></li>
                         <li className="option_item"><a href="#">View, Edit or Delete my Posts</a></li>
                         <li className="option_item"><a href="#">Approve Posts</a></li>
-                        <li className="option_item"><a href="/">Log Out</a></li>
+                        <li className="option_item"><a onClick={logout} href="#">Log Out</a></li>
                       </ul>
                     </div>
                   </div>
@@ -90,7 +101,7 @@ console.log(sessionEmail);
                   <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid officia voluptas.</p>
                 </div>
                 <div className="post_media">
-                  <video width="100%" height="275px" controls autoplay muted>
+                  <video width="100%" height="275px" controls autoPlay muted>
                     <source src={require("../../img/video.mp4")} type="video/mp4" />
                   </video>
                 </div>
@@ -151,24 +162,24 @@ console.log(sessionEmail);
         <form action="">
           <div className="d-flex">
             <div className="col-1-2">
-              <label for="event-name">Event Title</label><br />
+              <label htmlFor="event-name">Event Title</label><br />
               <input type="text" name="event-name" />
             </div>
             <div className="col-1-2">
-              <label for="event-cat">Event Category</label><br />
+              <label htmlFor="event-cat">Event Category</label><br />
               <input type="text" name="event-cat" />
             </div>
             <div className="col-1-2">
-              <label for="event-location">Event Location</label><br />
+              <label htmlFor="event-location">Event Location</label><br />
               <input type="text" name="event-location" />
             </div>
             <div className="col-1-2">
-              <label for="event-date">Event Date</label><br />
+              <label htmlFor="event-date">Event Date</label><br />
               <input type="text" name="event-date" />
             </div>
           </div>
           <div className="event_desc">
-            <label for="event-desc">Event Description</label><br />
+            <label htmlFor="event-desc">Event Description</label><br />
             <textarea name="event-desc" id="" cols="30" rows="10"></textarea>
           </div>
           <input type="submit" value="Submit" />
@@ -189,15 +200,15 @@ console.log(sessionEmail);
         <form action="">
           <div className="d-flex">
             <div className="col-1-2">
-              <label for="advt-name">Advertisement Title</label><br />
+              <label htmlFor="advt-name">Advertisement Title</label><br />
               <input type="text" name="advt-name" />
             </div>
             <div className="col-1-2">
-              <label for="advt-cat">Advertisement Category</label><br />
+              <label htmlFor="advt-cat">Advertisement Category</label><br />
               <input type="text" name="advt-cat" />
             </div>
             <div className="col-1-2">
-              <label for="advt-attach">Attachments</label><br />
+              <label htmlFor="advt-attach">Attachments</label><br />
               <input type="file" accept="image/png, image/jpeg" name="advt-attach" />
             </div>
           </div>
@@ -215,6 +226,8 @@ console.log(sessionEmail);
     <script src="../../js/app.js"></script>
     </>
   );
+
+  
 }
 
 export default Dashboard;

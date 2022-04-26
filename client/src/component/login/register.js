@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import "../../css/style.css";
 import logo from "../../img/Social_Awareness_logo.png";
 import * as Yup from 'yup';
@@ -34,12 +34,12 @@ function Register(setRegisterInfo) {
 
 
   const addUser = (data) => {
-    axios.post('/register',data).then((resp)=>{
+    axios.post('http://localhost:8000/register',data).then((resp)=>{
             
             if(resp.data.error){
           
               if(resp.data.error.code= 'ER_DUP_ENTRY'){
-                console.log("hello");
+                
                 document.getElementById("registerMessage").innerHTML = "Duplicate Email<br />";
                 document.getElementById("registerMessage").style.color = "red";
                 document.getElementById("registerMessage").style.marginBottom = "1em";
@@ -81,7 +81,7 @@ function Register(setRegisterInfo) {
 
             <Formik initialValues={ initalValue } onSubmit= { addUser} validationSchema={validationSchema} >
               <Form className="login_form">
-                <label htmlFor="user_id">User Name</label>
+                <label htmlFor="user_id">Name</label>
                 <ErrorMessage name="uname" className="errorMessage" component="div" />
                 <Field
                   id="uname"

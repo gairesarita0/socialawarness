@@ -4,9 +4,7 @@ import Signin from './component/login/login' ;
 import Dashboard from "./component/dashboard/dashboard";
 import Signup from './component/login/register';
 
-export function Home(sessionEmail){
-    sessionEmail="hello"
-    console.log(sessionEmail);
+export function Home(){
     return (
         <Dashboard />
     )

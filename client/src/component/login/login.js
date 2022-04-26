@@ -1,9 +1,33 @@
 import React,{useState} from "react";
 import "../../css/style.css";
 import logo from "../../img/Social_Awareness_logo.png";
+import axios from "axios";
+
 
 function Signin()
  { 
+  
+
+  const [email,setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const onSubmit =async () =>{
+    const data = {username: email,password:password};
+
+    console.log(data);
+    await axios.post("http://localhost:8000/login", data).then((response)=>{
+      console.log(response);
+          if (response.data.error){
+            document.getElementById("errorMessage").innerHTML = "Username or Password is not correct<br />";
+            document.getElementById("errorMessage").style.color = "red";
+            document.getElementById("errorMessage").style.marginBottom = "1em";
+          }
+          else {
+              localStorage.setItem("accessToken", response.data.accessToken);
+              window.location.href ="/dashboard";
+          }
+      });
+  }
   return (
     <main className="d-flex just-center items-center h-100 w-100">
       <div className="d-flex login-window">
@@ -16,21 +40,27 @@ function Signin()
           className="col-50 login-fields-wrapper d-flex just-center items-center">
           <div className="login-fields">
             <h2>Log In</h2>
-            {/* error */}
-            <form action="/dashboard" className="login_form">
-              <label for="user_id">User Name</label>
+            <div id="errorMessage"></div>
+            <div className="login_form">
+              <label htmlFor="user_id">Email</label>
               <input 
                 id="user_id"
                 type="text"
+                onChange={(event)=>{
+                  setEmail(event.target.value);
+                }}
                 placeholder="Example@gmail.com" />
-              <label for="user_password">Password</label>
+              <label htmlFor="user_password">Password</label>
               <input
                 id="user_password"
                 type="password"
+                onChange={(event)=>{
+                  setPassword(event.target.value);
+                }}
                 placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
               />
-              <button className="btn sign-in-btn">SIGN IN</button>
-            </form>
+              <button onClick={onSubmit} className="btn sign-in-btn">SIGN IN</button>
+            </div>
             <div className="d-flex space-between login-help">
               <span><a href="/register">Forgot Password?</a></span>
               <span><a href="/register">Not a Member?</a></span>
