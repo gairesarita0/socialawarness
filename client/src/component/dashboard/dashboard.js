@@ -1,54 +1,63 @@
-import React from "react";
-import "../../css/style.css";
+import React,{useContext, useState} from "react";
 import logo from "../../img/Social_Awareness_logo.png";
-import {useNavigate} from "react-router-dom";
-
-
+import {Link, useNavigate} from "react-router-dom";
+import { AuthContext } from "../../helpers/authContext"
+import "../../css/swiper-bundle.min.css";
+import "../../css/style.css";
+import Modalpost from "../modals/createPost";
+import Modaladv from "../modals/createAdv";
 
 
 
 function Dashboard() {
-  const navigate = useNavigate();
-  
+
+  const { authState }= useContext(AuthContext);
+  const [openPostModal, setOpenPostModal] = useState(false);
+  const [openAdvModal,setOpenAdvModal] = useState(false);
   const logout = () => {
     localStorage.clear();
-    window.location.href = "/dashboard"
+    window.location.href = "/"
   }
 
-  React.useEffect(() => {
-    const token = localStorage.getItem("accessToken");
-    console.log(token);
-    if(!token){
-      console.log(token);
-      navigate("/")
-    }
-  });
+
+
+
  
 
   return (
     <>
+    <div  className="home-page" >
       <header className="site-header">
         <div className="container">
           <div className="d-flex space-between items-center">
             <img src={logo} alt="" className="site-logo" />
             <div className="site-nevigation transition">
               <ul className="d-flex no-style primary-menu">
-                <li className="list-item"><a href="home-page.html">Home</a></li>
+                <li className="list-item"><a href="/">Home</a></li>
                 <li className="list-item"><a href="#">Contact Us</a></li>
-                <li className="admin_profile">
-                  <img src={require("../../img/user.png")} alt="" className="user_img" />
-                  <div className="profile_options_container">
-                    <div className="profile_options">
-                      <p className="user_name">Brenda E. Moss</p>
-                      <ul className="user_options no-style">
-                        <li className="option_item"><a href="#">Edit My Profile</a></li>
-                        <li className="option_item"><a href="#">View, Edit or Delete my Posts</a></li>
-                        <li className="option_item"><a href="#">Approve Posts</a></li>
-                        <li className="option_item"><a onClick={logout} href="#">Log Out</a></li>
-                      </ul>
+                { authState &&
+                  <li className="admin_profile">
+                    <img src={require("../../img/user.png")} alt="" className="user_img" />
+                    <div className="profile_options_container">
+                      <div className="profile_options">
+                        <p className="user_name">Brenda E. Moss</p>
+                        <ul className="user_options no-style">
+                          <li className="option_item"><a href="#">Edit My Profile</a></li>
+                          <li className="option_item"><a href="#">View, Edit or Delete my Posts</a></li>
+                          <li className="option_item"><a href="#">Approve Posts</a></li>
+                          <li className="option_item"><a onClick={logout} href="#">Log Out</a></li>
+                        </ul>
+                      </div>
                     </div>
-                  </div>
-                </li>
+                  </li>
+
+                   
+                }
+                {
+                  !authState &&
+                  <li> <a href="/login">Login</a> </li>
+
+                }
               </ul>
             </div>
         </div>
@@ -65,10 +74,19 @@ function Dashboard() {
         <div className="d-flex space-between">
           
           <div className="timeline_container">
-            <div className="Popup_btns">
-              <button id="myBtn" className="add_post_button">Post Event</button>
-              <button id="myBtn2" className="add_adv_btn">Post Advertisement</button>
-            </div>
+                {
+                  authState &&
+
+                  <div className="Popup_btns">
+                    <button id="myBtn" type="button" onClick={()=>setOpenPostModal(true)} className="add_post_button">Post Event</button>
+                    <button id="myBtn2" type="button" onClick={()=>setOpenAdvModal(true)} className="add_adv_btn">Post Advertisement</button>
+                    {openPostModal && <Modalpost closeModel={setOpenPostModal} />}
+                    {openAdvModal && <Modaladv closeModel={setOpenAdvModal} /> }
+                  </div>
+
+                }
+                
+            
             <div className="timeline">
               <div className="single_post">
                 <div className="user_meta d-flex items-center">
@@ -150,81 +168,22 @@ function Dashboard() {
     </main>
     { /* -- HTML MODALS-- */}
 
-    { /* -- The Modal --> */}
-  <div id="myModal" className="modal">
-    {/*<!-- Modal content --> */}
-    <div className="modal-content">
-      <div className="modal-header">
-        <span className="close">&times;</span>
-        <h2>Post Event</h2>
-      </div>
-      <div className="modal-body">
-        <form action="">
-          <div className="d-flex">
-            <div className="col-1-2">
-              <label htmlFor="event-name">Event Title</label><br />
-              <input type="text" name="event-name" />
-            </div>
-            <div className="col-1-2">
-              <label htmlFor="event-cat">Event Category</label><br />
-              <input type="text" name="event-cat" />
-            </div>
-            <div className="col-1-2">
-              <label htmlFor="event-location">Event Location</label><br />
-              <input type="text" name="event-location" />
-            </div>
-            <div className="col-1-2">
-              <label htmlFor="event-date">Event Date</label><br />
-              <input type="text" name="event-date" />
-            </div>
-          </div>
-          <div className="event_desc">
-            <label htmlFor="event-desc">Event Description</label><br />
-            <textarea name="event-desc" id="" cols="30" rows="10"></textarea>
-          </div>
-          <input type="submit" value="Submit" />
-        </form>
-      </div>
-    </div>
-  </div>
+ 
 
-  { /*<!-- Modal 2 for advertisement --> */}
-  <div id="myModal2" className="modal">
-    { /* <!-- Modal content --> */}
-    <div className="modal-content">
-      <div className="modal-header">
-        <span className="close">&times;</span>
-        <h2>Post Advertisement</h2>
-      </div>
-      <div className="modal-body">
-        <form action="">
-          <div className="d-flex">
-            <div className="col-1-2">
-              <label htmlFor="advt-name">Advertisement Title</label><br />
-              <input type="text" name="advt-name" />
-            </div>
-            <div className="col-1-2">
-              <label htmlFor="advt-cat">Advertisement Category</label><br />
-              <input type="text" name="advt-cat" />
-            </div>
-            <div className="col-1-2">
-              <label htmlFor="advt-attach">Attachments</label><br />
-              <input type="file" accept="image/png, image/jpeg" name="advt-attach" />
-            </div>
-          </div>
-          <input type="submit" value="Submit" />
-        </form>
-      </div>
-    </div>
-    </div>
-    <footer className="site-footer">
+      <footer className="site-footer">
       <div className="container">
         <span className="center">All Rights Reserved By Socail Awareness | 2022</span>
       </div>
     </footer>
-    <script src="../../js/swiper-bundle.min.js"></script>
-    <script src="../../js/app.js"></script>
+
+    
+  
+    </ div>
+
+  
+  
     </>
+
   );
 
   

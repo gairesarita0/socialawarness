@@ -7,7 +7,6 @@ import { BrowserRouter as Router} from "react-router-dom"
 
 
 
-/*import './css/style.css' */
 ReactDOM.render(
   <Router>
     <App authorized={true} /> 

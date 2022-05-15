@@ -1,0 +1,86 @@
+<DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Profile</title>
+  <link rel="stylesheet" href="css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="home-page">
+  <header class="site-header">
+    <div class="container">
+      <div class="d-flex space-between items-center">
+        <img src="img/Social_Awareness_logo.png" alt="" class="site-logo">
+        <div class="site-nevigation transition">
+          <ul class="d-flex no-style primary-menu">
+            <li class="list-item"><a href="home-page.html">Home</a></li>
+            <li class="list-item"><a href="#">Contact Us</a></li>
+            <li class="admin_profile"><img src="img/user.png" alt="" class="user_img">
+              <div class="profile_options_container">
+                <div class="profile_options">
+                  <p class="user_name">Brenda E. Moss</p>
+                  <ul class="user_options no-style">
+                    <li class="option_item"><a href="edit-profile.html">Edit My Profile</a></li>
+                    <li class="option_item"><a href="edit-delete.html">View, Edit or Delete my Posts</a></li>
+                    <li class="option_item"><a href="approve_post.html">Approve Posts</a></li>
+                    <li class="option_item"><a href="login.html">Log Out</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="menu-burger">
+      <div class="menu-bar"></div>
+      <div class="menu-bar"></div>
+      <div class="menu-bar"></div>
+      <div class="menu-closer d-none">X</div>
+    </div>
+  </header>
+  <main class="page-content-container">
+    <div class="inner-container">
+      <h2 class="center">My Profile</h2>
+      <form action="">
+        <div class="d-flex">
+          <div class="col-1-2">
+            <label for="advt-name">User Name</label><br>
+            <input type="text" name="user-name">
+          </div>
+          <div class="col-1-2">
+            <label for="advt-cat">Mobile Number</label><br>
+            <input type="text" name="mobile-number">
+          </div>
+          <div class="col-1-2">
+            <label for="advt-attach">Upload New Profile Picture</label><br>
+            <input type="file" accept="image/png, image/jpeg" name="upload-img">
+          </div>
+          <div class="col-1-2">
+            <label for="advt-attach">Date of Birth</label><br>
+            <input id="date" type="date" name="DOB">
+          </div>
+          <div class="col-1-2">
+            <label for="new_password">New Password</label>
+            <input
+              id="new_password"
+              type="password"
+              placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
+            />
+          </div>
+          <div class="col-1-2">
+            <label for="confirm-user-password">Confirm New Password</label>
+            <input
+              id="confirm-user-password"
+              type="password"
+              placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
+            />
+          </div>
+        </div>
+        <input class="update_record" type="submit" value="Update">
+      </form>
+    </div>
+  </main>
+  </body>>

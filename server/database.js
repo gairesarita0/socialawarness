@@ -1,13 +1,11 @@
-const {
-    createPool
-} = require('mysql');
+import mysql from "mysql";
 
-const pool = createPool({
-    host: "localhost",
+const db = mysql.createConnection({
     user: "root",
+    host: "localhost",
     password: "12345",
     database: "socialdb",
-    connectionLimit: 10
-})
+});
 
-pool.query('select * from ')
+module.exports = {db};
+

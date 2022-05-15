@@ -11,3 +11,4 @@ npm install --save body-parser
 npm install --save-dev nodemon
 
 to start npx nodemon --exec npx babel-node src/server.js
+npm install express-fileupload

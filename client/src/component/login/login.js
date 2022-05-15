@@ -1,7 +1,7 @@
-import React,{useState} from "react";
-import "../../css/style.css";
+import React,{useState, useContext} from "react";
 import logo from "../../img/Social_Awareness_logo.png";
 import axios from "axios";
+import { AuthContext } from "../../helpers/authContext";
 
 
 function Signin()
@@ -10,11 +10,11 @@ function Signin()
 
   const [email,setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { setAuthState } = useContext(AuthContext);
 
   const onSubmit =async () =>{
     const data = {username: email,password:password};
 
-    console.log(data);
     await axios.post("http://localhost:8000/login", data).then((response)=>{
       console.log(response);
           if (response.data.error){
@@ -24,7 +24,8 @@ function Signin()
           }
           else {
               localStorage.setItem("accessToken", response.data.accessToken);
-              window.location.href ="/dashboard";
+              setAuthState(true);
+              window.location.href ="/";
           }
       });
   }

@@ -1,26 +1,32 @@
 import express from "express";
+import fileUpload from "express-fileupload";
 import bodyParser from "body-parser";
-import mysql from "mysql";
+
 import cors from 'cors';
 import bcrypt from 'bcrypt';
 import {sign} from 'jsonwebtoken';
 
+
 const app = express();
+
+app.use(express.static('public'));
+app.use(fileUpload());
 app.use(bodyParser.json());
 app.use(cors());
 
+// Routers 
+const eventsRouter = require("../routes/Events");
+app.use("/events",eventsRouter);
 
-const db = mysql.createConnection({
-    user: "root",
-    host: "localhost",
-    password: "12345",
-    database: "socialdb",
-});
+
+const {db} = require("../database");
+
+
 
 app.post('/register', (req,res) => {
     const {uname,email,password} = req.body;
     bcrypt.hash(password, 10).then( async (hash) => {
-     await db.query("Insert into user (name,email,password) value (?,?,?)",[uname,email,hash],(err,result)=>{
+    db.query("Insert into user (name,email,password) value (?,?,?)",[uname,email,hash],(err,result)=>{
             if(err){
                 console.log(err);
                 res.json({error:err});
@@ -37,7 +43,7 @@ app.post('/register', (req,res) => {
 app.post("/login", (req,res) =>{
 
     const { username, password } = req.body;
-     db.query( "Select * from user where email = ? limit 1 ",[username], (err,result) =>{
+    db.query( "Select * from user where email = ? limit 1 ",[username], (err,result) =>{
         if(err){
             console.log(err)
         }
@@ -59,7 +65,7 @@ app.post("/login", (req,res) =>{
 
                     else{
 
-                        const accessToken = sign({username:user.Name}, "secretSarita");
+                        const accessToken = sign({username:user.Name,uid:user.uid,accesslevel:user.accesslevel}, "secretSarita");
 
                         res.json({accessToken: accessToken});
                     }
@@ -77,11 +83,6 @@ app.post("/login", (req,res) =>{
 });
 
 
-
-
-
-
-app.get('/hello', (req,res)=> res.send('Hello!'));
 
 
 app.listen(8000,() => console.log("Listening on port 8000"));

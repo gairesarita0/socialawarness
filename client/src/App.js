@@ -1,21 +1,35 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import { Routes, Route } from "react-router-dom";
 import {Home,Login, Register,Whoops404} from './pages' ;
-
-
+import {AuthContext} from './helpers/authContext';
 
 
 function App() {
+  const [authState, setAuthState] = useState(false); 
+  useEffect(()=>{
+    if(localStorage.getItem('accessToken')){
+      setAuthState(true);
+    }
+
+  },[])
+
+  
  
   return (
-    <Routes>
-      <Route path="/dashboard" element={<Home />}/>
-      <Route path="/" element={<Login />}/>
-      <Route path="/register"  element={<Register />} />
-      <Route path="*" element={<Whoops404 />}/>
-      <Route path="/" element= {<logout/>}/>
-    </Routes>
+    
+    <AuthContext.Provider value={{authState,setAuthState}}>
+      <Routes>
+      
+        <Route path="/" element={<Home />}/>
+        <Route path="/login" element={<Login />}/>
+        <Route path="/register"  element={<Register />} />
+        <Route path="*" element={<Whoops404 />}/>
+        <Route path="/" element= {<logout/>}/>
+      
 
+      </Routes>
+      </AuthContext.Provider>
+    
   );
 }
 

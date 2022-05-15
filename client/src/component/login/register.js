@@ -1,5 +1,4 @@
 import React from "react";
-import "../../css/style.css";
 import logo from "../../img/Social_Awareness_logo.png";
 import * as Yup from 'yup';
 import {Formik,Form,Field, ErrorMessage} from 'formik';
@@ -52,7 +51,7 @@ function Register(setRegisterInfo) {
                   document.getElementById("registerMessage").style.color = "Green";
                   document.getElementById("registerMessage").style.marginBottom = "1em";
 
-                  setTimeout(()=>{nevigate("/");} , 3000);
+                  setTimeout(()=>{nevigate("/login");} , 3000);
                   
                   
             }
