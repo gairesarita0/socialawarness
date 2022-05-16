@@ -1,6 +1,7 @@
 import express from "express";
 import {validateToken} from '../middleware/AuthMiddleware';
 
+
 const router =express.Router();
 const {db} = require("../database");
 

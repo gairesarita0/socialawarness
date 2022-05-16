@@ -3,6 +3,9 @@ import {useLocation} from "react-router-dom";
 import Signin from './component/login/login' ;
 import Dashboard from "./component/dashboard/dashboard";
 import Signup from './component/login/register';
+import ProfileEdit from './component/profile/profile';
+import PostSingle from "./component/post/post";
+import Approve from "./component/profile/approve";
 
 export function Home(){
     return (
@@ -31,5 +34,23 @@ export function Whoops404() {
         <div>
             <h1>Resourse not found at {location.pathname}</h1>
         </div>
+    )
+}
+
+export function Profile(){
+    return (
+        <ProfileEdit />
+    )
+}
+
+export function Post(){
+    return(
+        <PostSingle />
+    )
+}
+
+export function ApprovePost(){
+    return(
+        <Approve />
     )
 }

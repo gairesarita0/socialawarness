@@ -23,7 +23,7 @@ body{
     height: 100%;
     width: 100%;
     margin: 0;
-    padding: 0;
+    padding: 0 0 0 0%;
     font-family: PoppinsRegular;
 }
 h1,h2,h3,h4,h5,h6{
@@ -35,6 +35,11 @@ h1,h2,h3,h4,h5,h6{
     width: 100%;
     margin: 0 auto;
     max-width: 1180px;
+}
+
+.inner-container{
+    width: 768px;
+    margin: 0 auto;
 }
 .d-flex{
     display: flex;
@@ -228,16 +233,20 @@ font-size: 12px;
 }
 .admin_profile{
     position: relative;
+    
 }
 .profile_options_container{
     position: absolute;
+    right: 0px;
     top: 50px;
-    left: 0;
     display: none;
     z-index: 9;
+    
+    
 }
 .admin_profile:hover .profile_options_container{
     display: block;
+    
 }
 .profile_options {
     padding: 12px;
@@ -245,6 +254,8 @@ font-size: 12px;
     border-radius: 8px;
     background-color: #fff;
     width: 250px;
+   
+    
 }
 .menu-burger{
     position: absolute;
@@ -284,7 +295,7 @@ font-size: 12px;
     width: 30%;
     margin-top: 45px;
 }
-.add_post_button, .add_adv_btn{
+.add_post_button, .add_adv_btn, .edit_btn, .delete_btn{
     text-decoration: none;
     padding: 6px 18px;
     display: inline-block;
@@ -294,7 +305,10 @@ font-size: 12px;
     font-family: PoppinsMed;
     margin-bottom: 12px;
     border-radius: 4px;
-    margin-right: 4px;
+    margin-right: 2px;
+}
+.CTA_btns{
+    margin-top: 15px;
 }
 .advertisements{
     padding: 15px;
@@ -526,6 +540,13 @@ height: auto;
         font-size: 22px;
         text-align: center;
     }
+    .option_item{
+        margin-bottom: 8px !important;
+    }
+    .option_item a{
+        color: #003585 !important;
+        font-size: 14px !important;
+    }
     .transition{
         transform: translateX(-100vw);
     }
@@ -534,6 +555,14 @@ height: auto;
     }
     .page-content-container .d-flex.space-between{
         justify-content: center;
+    }
+
+    .timeline_container, .advertisements_container{
+        width: 100%;
+        margin-right: 0;
+    }
+    .advertisements_container{
+        margin-bottom: 0;
     }
     .profile_options, .timeline_container{
         margin-bottom: 30px;

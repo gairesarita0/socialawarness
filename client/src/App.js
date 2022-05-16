@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import { Routes, Route } from "react-router-dom";
-import {Home,Login, Register,Whoops404} from './pages' ;
+import {Home,Login, Register, Profile,Whoops404, Post, ApprovePost} from './pages' ;
 import {AuthContext} from './helpers/authContext';
 
 
@@ -23,8 +23,16 @@ function App() {
         <Route path="/" element={<Home />}/>
         <Route path="/login" element={<Login />}/>
         <Route path="/register"  element={<Register />} />
-        <Route path="*" element={<Whoops404 />}/>
         <Route path="/" element= {<logout/>}/>
+
+        <Route path= "/profile" element={ <Profile />} />
+
+        <Route path = "/approve" element={ <ApprovePost />} />
+
+        <Route path="/post" element= {<Post />} />
+        <Route path="*" element={<Whoops404 />}/>
+        
+
       
 
       </Routes>

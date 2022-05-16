@@ -1,75 +1,31 @@
 import React,{useContext, useState} from "react";
-import logo from "../../img/Social_Awareness_logo.png";
-import {Link, useNavigate} from "react-router-dom";
+
 import { AuthContext } from "../../helpers/authContext"
 import "../../css/swiper-bundle.min.css";
 import "../../css/style.css";
 import Modalpost from "../modals/createPost";
 import Modaladv from "../modals/createAdv";
+import Events from "./events";
+import Menu from "../header/menu";
 
 
 
 function Dashboard() {
 
+  
   const { authState }= useContext(AuthContext);
   const [openPostModal, setOpenPostModal] = useState(false);
   const [openAdvModal,setOpenAdvModal] = useState(false);
-  const logout = () => {
-    localStorage.clear();
-    window.location.href = "/"
-  }
+  
 
-
-
-
- 
-
+    
   return (
     <>
     <div  className="home-page" >
-      <header className="site-header">
-        <div className="container">
-          <div className="d-flex space-between items-center">
-            <img src={logo} alt="" className="site-logo" />
-            <div className="site-nevigation transition">
-              <ul className="d-flex no-style primary-menu">
-                <li className="list-item"><a href="/">Home</a></li>
-                <li className="list-item"><a href="#">Contact Us</a></li>
-                { authState &&
-                  <li className="admin_profile">
-                    <img src={require("../../img/user.png")} alt="" className="user_img" />
-                    <div className="profile_options_container">
-                      <div className="profile_options">
-                        <p className="user_name">Brenda E. Moss</p>
-                        <ul className="user_options no-style">
-                          <li className="option_item"><a href="#">Edit My Profile</a></li>
-                          <li className="option_item"><a href="#">View, Edit or Delete my Posts</a></li>
-                          <li className="option_item"><a href="#">Approve Posts</a></li>
-                          <li className="option_item"><a onClick={logout} href="#">Log Out</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </li>
-
-                   
-                }
-                {
-                  !authState &&
-                  <li> <a href="/login">Login</a> </li>
-
-                }
-              </ul>
-            </div>
-        </div>
-      </div>
-      <div className="menu-burger">
-        <div className="menu-bar"></div>
-        <div className="menu-bar"></div>
-        <div className="menu-bar"></div>
-        <div className="menu-closer d-none">X</div>
-      </div>
-    </header>
+     <Menu />
+     
     <main className="page-content-container">
+    
       <div className="container">
         <div className="d-flex space-between">
           
@@ -86,55 +42,8 @@ function Dashboard() {
 
                 }
                 
+                <Events />
             
-            <div className="timeline">
-              <div className="single_post">
-                <div className="user_meta d-flex items-center">
-                  <img src="../../img/user.png" alt="" className="user_icon" />
-                  <p>Brenda E. Moss</p>
-                </div>
-                <div className="post_description">
-                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid officia voluptas.</p>
-                </div>
-                <div className="post_media">
-                  <img src={require("../../img/Social_Awareness_img.jpg")} alt="" />
-                </div>
-                <div className="post_comments">
-                  <div className="user_meta d-flex items-center">
-                    <img src={require("../../img/men-img.jpeg")} alt="" className="user_icon" />
-                    <div className="user_comment">
-                      <p>John Deo</p>
-                      <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis unde placeat delectus.</span>
-                    </div>
-                    <input type="text" className="new_comment" placeholder="write new comment" />
-                  </div> 
-                </div>
-              </div>
-              <div className="single_post">
-                <div className="user_meta d-flex items-center">
-                  <img src={require("../../img/user.png")} alt="" className="user_icon" />
-                  <p>Brenda E. Moss</p>
-                </div>
-                <div className="post_description">
-                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid officia voluptas.</p>
-                </div>
-                <div className="post_media">
-                  <video width="100%" height="275px" controls autoPlay muted>
-                    <source src={require("../../img/video.mp4")} type="video/mp4" />
-                  </video>
-                </div>
-                <div className="post_comments">
-                  <div className="user_meta d-flex items-center">
-                    <img src={require("../../img/men-img.jpeg")} alt="" className="user_icon" />
-                    <div className="user_comment">
-                      <p>John Deo</p>
-                      <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis unde placeat delectus.</span>
-                    </div>
-                    <input type="text" className="new_comment" placeholder="write new comment" />
-                  </div> 
-                </div>
-              </div>
-            </div>
           </div>
           <div className="advertisements_container">
             <div className="advertisements">
