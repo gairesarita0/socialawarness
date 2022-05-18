@@ -1,5 +1,6 @@
 import axios from "axios";
 import React,{Fragment, useState} from "react";
+import { urlServer } from "../../urlVari";
 
 function CreatePost({closeModel}) {
     const [file, setFile] = useState('');
@@ -27,7 +28,7 @@ function CreatePost({closeModel}) {
         formData.append('file', file);
        
         try{
-            const res = await axios.post('http://localhost:8000/events/createEvent', formData,{
+            const res = await axios.post(urlServer+'/events/createEvent', formData,{
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     accessToken: localStorage.getItem("accessToken")

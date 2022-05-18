@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import {Formik,Form,Field, ErrorMessage} from 'formik';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { urlServer } from "../../urlVari";
 
 
 
@@ -33,7 +34,7 @@ function Register(setRegisterInfo) {
 
 
   const addUser = (data) => {
-    axios.post('http://localhost:8000/register',data).then((resp)=>{
+    axios.post(urlServer+'/register',data).then((resp)=>{
             
             if(resp.data.error){
           

@@ -1,5 +1,6 @@
 import React,{useEffect,useState} from 'react';
 import axios from 'axios';
+import { urlServer } from "../../urlVari";
 
 function Events() {
 
@@ -8,7 +9,7 @@ function Events() {
     useEffect(()=>{
     
         const fetchData = async () => {
-          await axios.get("http://localhost:8000/events/").then((response)=>{
+          await axios.get( urlServer + "/events/").then((response)=>{
           console.log(response.data);
           setListOfEvents(response.data);   
           });
@@ -19,9 +20,10 @@ function Events() {
 
 
   return (
+
     <div className="timeline">
         {listOfEvents.reverse().map((value, key) => {
-            let img = 'http://localhost:8000/uploads/'+ value.image;
+            let img = urlServer+'/uploads/'+ value.image;
         return (
         <div className="single_post">
             <div className="user_meta d-flex items-center">

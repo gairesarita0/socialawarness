@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.eb6ffe5d.css",
+    "main.js": "/static/js/main.e3ec9289.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/user.png": "/static/media/user.181bf1b5b5d823a141ab.png",
+    "static/media/Poppins-Regular.ttf": "/static/media/Poppins-Regular.8081832fc5cfbf634aa6.ttf",
+    "static/media/Poppins-Medium.ttf": "/static/media/Poppins-Medium.9e1bb626874ed49aa343.ttf",
+    "static/media/Poppins-Bold.ttf": "/static/media/Poppins-Bold.404e299be26d78e66794.ttf",
+    "static/media/lamps.png": "/static/media/lamps.5eef412609fd1566f443.png",
+    "static/media/Social_Awareness_logo.png": "/static/media/Social_Awareness_logo.c8a86e96d95a96da8ae0.png",
+    "static/media/social2.jpeg": "/static/media/social2.b7723d49f19498a0fc20.jpeg",
+    "static/media/social1.jpeg": "/static/media/social1.85caaeb79f6ed3d9b675.jpeg",
+    "index.html": "/index.html",
+    "main.eb6ffe5d.css.map": "/static/css/main.eb6ffe5d.css.map",
+    "main.e3ec9289.js.map": "/static/js/main.e3ec9289.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.eb6ffe5d.css",
+    "static/js/main.e3ec9289.js"
+  ]
+}

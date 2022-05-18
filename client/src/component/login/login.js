@@ -2,6 +2,7 @@ import React,{useState, useContext} from "react";
 import logo from "../../img/Social_Awareness_logo.png";
 import axios from "axios";
 import { AuthContext } from "../../helpers/authContext";
+import { urlServer } from "../../urlVari";
 
 
 function Signin()
@@ -11,11 +12,12 @@ function Signin()
   const [email,setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { setAuthState } = useContext(AuthContext);
+  
 
   const onSubmit =async () =>{
     const data = {username: email,password:password};
 
-    await axios.post("http://localhost:8000/login", data).then((response)=>{
+    await axios.post(urlServer+"/login", data).then((response)=>{
       console.log(response);
           if (response.data.error){
             document.getElementById("errorMessage").innerHTML = "Username or Password is not correct<br />";
