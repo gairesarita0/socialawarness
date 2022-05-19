@@ -34,7 +34,7 @@ function Register(setRegisterInfo) {
 
 
   const addUser = (data) => {
-    axios.post(urlServer+'/register',data).then((resp)=>{
+    axios.post(urlServer+'/api/register',data).then((resp)=>{
             
             if(resp.data.error){
           

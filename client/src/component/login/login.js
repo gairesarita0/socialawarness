@@ -17,7 +17,7 @@ function Signin()
   const onSubmit =async () =>{
     const data = {username: email,password:password};
 
-    await axios.post(urlServer+"/login", data).then((response)=>{
+    await axios.post(urlServer+"/api/login", data).then((response)=>{
       console.log(response);
           if (response.data.error){
             document.getElementById("errorMessage").innerHTML = "Username or Password is not correct<br />";

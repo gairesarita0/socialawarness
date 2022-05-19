@@ -28,7 +28,7 @@ function CreatePost({closeModel}) {
         formData.append('file', file);
        
         try{
-            const res = await axios.post(urlServer+'/events/createEvent', formData,{
+            const res = await axios.post(urlServer+'/api/events/createEvent', formData,{
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     accessToken: localStorage.getItem("accessToken")

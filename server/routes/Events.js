@@ -6,7 +6,7 @@ const router =express.Router();
 const {db} = require("../database");
 
 router.get("/", (req,res)=>{
-    db.query( "Select * from campaign ", (err,result) =>{
+    db.query( "Select * from campaign where approve = 1", (err,result) =>{
         if(err){
             console.log(err)
         }
@@ -17,10 +17,68 @@ router.get("/", (req,res)=>{
 
             return res.json(camp)
                    
-        
-            
-            
-            
+          
+        }
+    });
+
+    
+})
+
+router.get("/notapproved", (req,res)=>{
+    db.query( "Select * from campaign where approve = 0 ", (err,result) =>{
+        if(err){
+            console.log(err)
+        }
+        else{  
+            const camp = result;
+
+            console.log(camp);
+
+            return res.json(camp)
+                   
+          
+        }
+    });
+
+    
+})
+
+router.get("/approve/:id", (req,res)=>{
+    
+    const id = req.params.id;
+    db.query( "Update campaign SET approve = 1  where cmid = ? ",[id], (err,result) =>{
+        if(err){
+            console.log(err)
+        }
+        else{  
+            const camp = result;
+
+            console.log(camp);
+
+            return res.json(camp)
+                   
+          
+        }
+    });
+
+    
+})
+
+router.get("/reject/:id", (req,res)=>{
+    
+    const id = req.params.id;
+    db.query( "Update campaign SET approve = 2  where cmid = ? ",[id], (err,result) =>{
+        if(err){
+            console.log(err)
+        }
+        else{  
+            const camp = result;
+
+            console.log(camp);
+
+            return res.json(camp)
+                   
+          
         }
     });
 
