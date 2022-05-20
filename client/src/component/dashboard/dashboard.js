@@ -1,12 +1,15 @@
-import React,{useContext, useState} from "react";
+import React,{useContext, useState, useEffect} from "react";
 
 import { AuthContext } from "../../helpers/authContext"
 import "../../css/swiper-bundle.min.css";
 import "../../css/style.css";
+
+
+import Menu from "../header/menu";
+import Events from "./events";
+
 import Modalpost from "../modals/createPost";
 import Modaladv from "../modals/createAdv";
-import Events from "./events";
-import Menu from "../header/menu";
 
 
 
@@ -20,7 +23,7 @@ function Dashboard() {
 
     
   return (
-    <>
+    
     <div  className="home-page" >
      <Menu />
      
@@ -91,7 +94,7 @@ function Dashboard() {
 
   
   
-    </>
+    
 
   );
 

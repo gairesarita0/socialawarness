@@ -567,6 +567,15 @@ height: auto;
     .profile_options, .timeline_container{
         margin-bottom: 30px;
     }
+    .profile_options_container{
+        position: absolute;
+        left: 0px;
+        top: 50px;
+        display: none;
+        z-index: 9;
+        
+        
+    }
 }
 
 .progessBar{

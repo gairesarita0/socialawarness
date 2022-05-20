@@ -8,9 +8,10 @@ function Menu() {
     const { authState }= useContext(AuthContext);
     const logout = () => {
         localStorage.clear();
-        window.location.href = "/"
+        window.location.href = "/";
       }
   useEffect( ()=> {
+      
       var menu_trigger = document.querySelector(".menu-burger");
       var menu_bars = document.querySelectorAll(".menu-bar");
       var menu_closer = document.querySelector(".menu-closer");
@@ -24,7 +25,7 @@ function Menu() {
       menu_closer.classList.toggle("d-none");
       nav_menu.classList.toggle("transition");
     });
-  });
+  },[]);
 
 
   return (

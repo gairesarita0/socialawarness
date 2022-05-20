@@ -43,6 +43,27 @@ router.get("/notapproved", (req,res)=>{
     
 })
 
+
+router.get("/listmypost",validateToken, (req,res)=>{
+    const uid = req.user.uid;
+    db.query( "Select * from campaign where uid = ? ",[uid], (err,result) =>{
+        if(err){
+            console.log(err)
+        }
+        else{  
+            const camp = result;
+
+            console.log(camp);
+
+            return res.json(camp)
+                   
+          
+        }
+    });
+
+    
+})
+
 router.get("/approve/:id", (req,res)=>{
     
     const id = req.params.id;
@@ -85,6 +106,27 @@ router.get("/reject/:id", (req,res)=>{
     
 })
 
+router.get("/deleteCampaign/:id", (req,res)=>{
+    
+    const id = req.params.id;
+    db.query( "Delete from campaign where cmid = ? ",[id], (err,result) =>{
+        if(err){
+            console.log(err)
+        }
+        else{  
+            const camp = result;
+
+            console.log(camp);
+
+            return res.json(camp)
+                   
+          
+        }
+    });
+
+    
+})
+
 router.post('/createEvent',validateToken, (req,res)=>{
     const title = req.body.title;
     const category = req.body.category;
@@ -100,7 +142,7 @@ router.post('/createEvent',validateToken, (req,res)=>{
         ferror = "nofile";
     }
     else{
-        file.mv(`${__dirname}/../public/uploads/${file.name}`, err => {
+        file.mv(`${__dirname}/../src/public/uploads/${file.name}`, err => {
             if (err){
                 console.error(err);
                 return res.status(500).send(err);
