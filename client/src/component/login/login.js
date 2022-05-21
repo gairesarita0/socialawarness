@@ -1,4 +1,4 @@
-import React,{useState, useContext} from "react";
+import React,{useState, useContext, useEffect} from "react";
 import logo from "../../img/Social_Awareness_logo.png";
 import axios from "axios";
 import { AuthContext } from "../../helpers/authContext";
@@ -31,6 +31,18 @@ function Signin()
           }
       });
   }
+
+  useEffect(()=>{
+    var input = document.getElementById("user_password");
+      input.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          document.getElementById("loginBtn").click();
+        }
+      });
+
+    },[]
+  )
   
   return (
     <main className="d-flex just-center items-center h-100 w-100">
@@ -63,7 +75,7 @@ function Signin()
                 }}
                 placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
               />
-              <button onClick={onSubmit} className="btn sign-in-btn">SIGN IN</button>
+              <button id="loginBtn" onClick={onSubmit} className="btn sign-in-btn">SIGN IN</button>
             </div>
             <div className="d-flex space-between login-help">
               <span><a href="/register">Forgot Password?</a></span>

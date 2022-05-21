@@ -5,9 +5,11 @@ import logo from "../../img/Social_Awareness_logo.png";
 
 
 function Menu() {
-    const { authState }= useContext(AuthContext);
+    const { authState,setAuthState }= useContext(AuthContext);
     const logout = () => {
         localStorage.clear();
+        setAuthState({...authState, status:false});
+
         window.location.href = "/";
       }
   useEffect( ()=> {
@@ -37,16 +39,21 @@ function Menu() {
             <div className="site-nevigation transition">
               <ul className="d-flex no-style primary-menu">
                 <li className="list-item"><a href="/">Home</a></li>
-                { authState &&
-                  <li className="admin_profile">
+                { authState.status &&
+                  <li className="admin_profile list-item">
+
                     <img src={require("../../img/user.png")} alt="" className="user_img" />
+                    
                     <div className="profile_options_container">
                       <div className="profile_options">
-                        <p className="user_name">Brenda E. Moss</p>
+                        <p className="user_name">{authState.uname}</p>
                         <ul className="user_options no-style">
                           <li className="option_item"><a href="/profile">Edit My Profile</a></li>
                           <li className="option_item"><a href="/post">View, Edit or Delete my Posts</a></li>
+                          { authState.accesslevel == 3 && 
                           <li className="option_item"><a href="/approve">Approve Posts</a></li>
+
+                        }
                           <li className="option_item"><a onClick={logout} href="#">Log Out</a></li>
                         </ul>
                       </div>
@@ -56,7 +63,7 @@ function Menu() {
                    
                 }
                 {
-                  !authState &&
+                  !authState.status &&
                   <li> <a href="/login">Login</a> </li>
 
                 }

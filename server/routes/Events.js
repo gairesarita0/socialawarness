@@ -22,6 +22,8 @@ router.get("/", (req,res)=>{
     });
 
     
+
+    
 })
 
 router.get("/notapproved", (req,res)=>{
@@ -34,7 +36,9 @@ router.get("/notapproved", (req,res)=>{
 
             console.log(camp);
 
-            return res.json(camp)
+            res.json(camp)
+
+            db.end();
                    
           
         }
@@ -70,6 +74,7 @@ router.get("/approve/:id", (req,res)=>{
     db.query( "Update campaign SET approve = 1  where cmid = ? ",[id], (err,result) =>{
         if(err){
             console.log(err)
+            
         }
         else{  
             const camp = result;

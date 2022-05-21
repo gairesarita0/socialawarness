@@ -34,13 +34,20 @@ function Dashboard() {
           
           <div className="timeline_container">
                 {
-                  authState &&
+                  (authState.accesslevel ===2 || authState.accesslevel ===3 ) &&
 
                   <div className="Popup_btns">
                     <button id="myBtn" type="button" onClick={()=>setOpenPostModal(true)} className="add_post_button">Post Event</button>
-                    <button id="myBtn2" type="button" onClick={()=>setOpenAdvModal(true)} className="add_adv_btn">Post Advertisement</button>
+                    {authState.accesslevel== 3 &&
+                    
+                    <>
+                      <button id="myBtn2" type="button" onClick={()=>setOpenAdvModal(true)} className="add_adv_btn">Post Advertisement</button>
+                      {openAdvModal && <Modaladv closeModel={setOpenAdvModal} /> }
+                    </>
+                    }
+
                     {openPostModal && <Modalpost closeModel={setOpenPostModal} />}
-                    {openAdvModal && <Modaladv closeModel={setOpenAdvModal} /> }
+                    
                   </div>
 
                 }

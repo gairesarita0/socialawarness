@@ -1,8 +1,11 @@
-import React,{useEffect,useState} from 'react';
+import React,{useEffect,useState, useContext} from 'react';
 import axios from 'axios';
 import { urlServer } from "../../urlVari";
+import {AuthContext} from "../../helpers/authContext"
 
 function Events() {
+
+  const { authState }= useContext(AuthContext);
 
     const [listOfEvents, setListOfEvents] = useState([]);
 
@@ -47,7 +50,10 @@ function Events() {
                       <p>John Deo</p>
                       <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis unde placeat delectus.</span>
                     </div>
+                    { !authState.accesslevel && (
                       <input type="text" className="new_comment" placeholder="write new comment" />
+                    )
+                    }
                   </div> 
                 </div>
               </div>
