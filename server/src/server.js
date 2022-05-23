@@ -18,7 +18,10 @@ app.use(cors());
 
 // Routers 
 const eventsRouter = require("../routes/Events");
+const userManagement = require("../routes/Users");
+
 app.use("/api/events",eventsRouter);
+app.use("/api/users", userManagement);
 
 
 const {db} = require("../database");
@@ -28,12 +31,13 @@ const {db} = require("../database");
 app.post('/api/register', (req,res) => {
     const {uname,email,password} = req.body;
     bcrypt.hash(password, 10).then( async (hash) => {
-    db.query("Insert into user (name,email,password) value (?,?,?)",[uname,email,hash],(err,result)=>{
+    db.query("Insert into user (name,email,password,accesslevel) value (?,?,?,?)",[uname,email,hash,1],(err,result)=>{
             if(err){
                 console.log(err);
                 res.json({error:err});
             }
             else{
+                
                 res.json({success:"success"});
             }
         }); 

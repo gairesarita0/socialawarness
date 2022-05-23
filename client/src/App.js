@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import { Routes, Route } from "react-router-dom";
-import {Home,Login, Register, Profile,Whoops404, Post, ApprovePost} from './pages' ;
+import {Home,Login, Register, Profile,Whoops404, Post, ApprovePost, UserManagement} from './pages' ;
 import {AuthContext} from './helpers/authContext';
 import axios from 'axios';
 import {urlServer} from './urlVari'
@@ -17,9 +17,8 @@ function App() {
                                         accessToken: localStorage.getItem("accessToken")
                                       },
                             }).then((resp)=>{
-                              console.log(resp.data);
                                               if(resp.data.error){
-                                                setAuthState({...authState,status:false});
+                                                setAuthState({uname:"",uid:0,accesslevel:0, status:false});
                                               }
                                               else{
                                                 setAuthState({
@@ -53,6 +52,8 @@ function App() {
         <Route path = "/approve" element={ <ApprovePost />} />
 
         <Route path="/post" element= {<Post />} />
+
+        <Route path='/users' element= {<UserManagement/>} />
         <Route path="*" element={<Whoops404 />}/>
         
 

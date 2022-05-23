@@ -10,6 +10,7 @@ import Events from "./events";
 
 import Modalpost from "../modals/createPost";
 import Modaladv from "../modals/createAdv";
+import Advertise from "../advertisement/Advertise";
 
 
 
@@ -56,21 +57,7 @@ function Dashboard() {
             
           </div>
           <div className="advertisements_container">
-            <div className="advertisements">
-              <h2 className="center">Advertisements</h2>
-              <div className="swiper advertisement_slider mySwiper">
-                <div className="swiper-wrapper">
-                  <div className="swiper-slide">
-                    <img src={require("../../img/social1.jpeg")} alt="" />
-                  </div>
-                  <div className="swiper-slide">
-                    <img src={require("../../img/social2.jpeg")} alt="" />
-                  </div>
-                </div>
-                <div className="swiper-button-next"></div>
-                <div className="swiper-button-prev"></div>
-              </div>
-            </div>
+            <Advertise />
             <div className="about-us-section">
               <h2 className="center">About Us</h2>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste soluta perferendis eius iusto vel illo repellat ducimus, aperiam doloribus. Dolores sequi culpa minima quam nobis repudiandae omnis tempore excepturi. Tenetur!</p>

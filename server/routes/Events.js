@@ -38,7 +38,6 @@ router.get("/notapproved", (req,res)=>{
 
             res.json(camp)
 
-            db.end();
                    
           
         }

@@ -6,6 +6,7 @@ import Signup from './component/login/register';
 import ProfileEdit from './component/profile/profile';
 import PostSingle from "./component/post/post";
 import Approve from "./component/profile/approve";
+import Users from "./component/profile/user";
 
 export function Home(){
     return (
@@ -52,5 +53,11 @@ export function Post(){
 export function ApprovePost(){
     return(
         <Approve />
+    )
+}
+
+export function UserManagement(){
+    return(
+        <Users />
     )
 }

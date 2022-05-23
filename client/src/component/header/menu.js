@@ -50,8 +50,11 @@ function Menu() {
                         <ul className="user_options no-style">
                           <li className="option_item"><a href="/profile">Edit My Profile</a></li>
                           <li className="option_item"><a href="/post">View, Edit or Delete my Posts</a></li>
-                          { authState.accesslevel == 3 && 
-                          <li className="option_item"><a href="/approve">Approve Posts</a></li>
+                          { authState.accesslevel === 3 && 
+                          <>
+                            <li className="option_item"><a href="/approve">Approve Posts</a></li>
+                            <li className="option_item"><a href="/users">User Management</a></li>
+                          </>
 
                         }
                           <li className="option_item"><a onClick={logout} href="#">Log Out</a></li>
