@@ -56,19 +56,7 @@ function Dashboard() {
                 <Events />
             
           </div>
-          <div className="advertisements_container">
-            <Advertise />
-            <div className="about-us-section">
-              <h2 className="center">About Us</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste soluta perferendis eius iusto vel illo repellat ducimus, aperiam doloribus. Dolores sequi culpa minima quam nobis repudiandae omnis tempore excepturi. Tenetur!</p>
-            </div>
-            <div className="contact-us-section">
-              <h2 className="center">Get In Touch</h2>
-              <p>Please contact us through email or phone number for further information and queries.</p>
-              <span>Call: <a href="tel:0123456789">012 345 6789</a></span><br/>
-              <span>E-mail: <a href="mailto:example@gmail.com">Example@gmail.com</a></span>
-            </div>
-          </div>
+          <Advertise />
         </div>
       </div>
     </main>

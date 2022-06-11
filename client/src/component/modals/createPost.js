@@ -69,7 +69,7 @@ function CreatePost({closeModel}) {
    
     return (  
         <>
-            <label>hello</label>
+           
               { /* -- The Modal --> */}
             <div id="myModal" className="modal">
                 {/*<!-- Modal content --> */}
@@ -83,8 +83,8 @@ function CreatePost({closeModel}) {
                     <form action="">
                     <div className="d-flex">
                         <div className="col-1-2">
-                        <label htmlFor="event-name">Event Title</label><br />
-                        <input type="text" name="event-name" onChange={(event)=>setTitle(event.target.value)} />
+                            <label htmlFor="event-name">Event Title</label><br />
+                            <input type="text" name="event-name" onChange={(event)=>setTitle(event.target.value)} />
                         </div>
                         <div className="col-1-2">
                         <label htmlFor="event-cat">Event Category</label><br />

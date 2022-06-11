@@ -140,13 +140,19 @@ router.post('/createEvent',validateToken, (req,res)=>{
     const uid = req.user.uid;
 
     const file = req.files.file;
+    let filename = '';
 
     console.log(req.body);
     if(req.files === null){
         ferror = "nofile";
     }
+
     else{
-        file.mv(`${__dirname}/../src/public/uploads/${file.name}`, err => {
+        let ts = Date.now();
+
+         filename="events"+ts+file.name;
+        
+        file.mv(`${__dirname}/../src/public/uploads/${filename}`, err => {
             if (err){
                 console.error(err);
                 return res.status(500).send(err);
@@ -156,7 +162,7 @@ router.post('/createEvent',validateToken, (req,res)=>{
 
     }
 
-    db.query("Insert into campaign (cname,category,description,location,date,image,uid) value (?,?,?,?,?,?,?)",[title,category,description,location,date,file.name,uid],(err,result)=>{
+    db.query("Insert into campaign (cname,category,description,location,date,image,uid) value (?,?,?,?,?,?,?)",[title,category,description,location,date,filename,uid],(err,result)=>{
         if(err){
             console.log(err);
             res.json({error:err});

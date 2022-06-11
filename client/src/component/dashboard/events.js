@@ -1,11 +1,11 @@
 import React,{useEffect,useState, useContext} from 'react';
 import axios from 'axios';
 import { urlServer } from "../../urlVari";
-import {AuthContext} from "../../helpers/authContext"
+import Comment from './comments';
 
 function Events() {
 
-  const { authState }= useContext(AuthContext);
+
 
     const [listOfEvents, setListOfEvents] = useState([]);
 
@@ -13,7 +13,8 @@ function Events() {
     
         const fetchData = async () => {
           await axios.get( urlServer + "/api/events/").then((response)=>{
-          console.log(response.data);
+            console.log(response.data);
+
           setListOfEvents(response.data);   
           });
         }
@@ -21,11 +22,12 @@ function Events() {
     
       },[]);
 
+  
 
   return (
 
     <div className="timeline">
-        {listOfEvents.reverse().map((value, key) => {
+        {listOfEvents.map((value, key) => {
             let img = urlServer+'/uploads/'+ value.image;
         return (
           <div className="single_post" key={key}>
@@ -42,20 +44,8 @@ function Events() {
               <div className="post_media"> 
                   <img src={img} alt="" />
               </div>
-
-              <div className="post_comments">
-                <div className="user_meta d-flex items-center">
-                    <img src={require("../../img/men-img.jpeg")} alt="" className="user_icon" />
-                    <div className="user_comment">
-                      <p>John Deo</p>
-                      <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis unde placeat delectus.</span>
-                    </div>
-                    { !authState.accesslevel && (
-                      <input type="text" className="new_comment" placeholder="write new comment" />
-                    )
-                    }
-                  </div> 
-                </div>
+              <Comment cmid={value.cmid} />
+             
               </div>
             );
         })

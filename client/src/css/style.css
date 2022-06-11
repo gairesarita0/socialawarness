@@ -585,3 +585,17 @@ height: auto;
     color: white;
     padding:2px
   }
+
+  .delbut img{
+    width:16px;
+    height:16px;
+    float: right;
+
+}
+.delbut{
+    float: right;
+}
+
+.commentNo{
+    color:rgb(231, 68, 101);
+}

@@ -19,9 +19,13 @@ app.use(cors());
 // Routers 
 const eventsRouter = require("../routes/Events");
 const userManagement = require("../routes/Users");
+const advManagement = require("../routes/Advertise");
+const comments = require("../routes/Comments");
 
 app.use("/api/events",eventsRouter);
 app.use("/api/users", userManagement);
+app.use("/api/adv", advManagement);
+app.use("/api/comments",comments);
 
 
 const {db} = require("../database");

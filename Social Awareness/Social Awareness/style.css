@@ -577,3 +577,13 @@ font-size: 12px;
     color: white;
     padding:2px
   }
+
+  .delbut img{
+      width:16px;
+      height:16px;
+      float: right;
+
+  }
+  .delbut{
+      float: right;
+  }

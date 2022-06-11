@@ -1,11 +1,19 @@
 import mysql from "mysql";
 
-const db = mysql.createConnection({
-    user: "root",
-    host: "localhost",
-    password: "12345",
-    database: "socialdb",
+
+var db = mysql.createPool({
+  connectionLimit:4,
+  host: "localhost",
+  user: "root",
+  password: "12345",
+  database:"socialdb"
+});
+
+db.getConnection((err,connection)=> {
+  if(err)
+  throw err;
+  console.log('Database connected successfully');
+  connection.release();
 });
 
 module.exports = {db};
-
